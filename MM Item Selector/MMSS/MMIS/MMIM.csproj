@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2ADA260B-8D4F-46A4-9FCD-FE360DF8590E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMIM</RootNamespace>
+    <AssemblyName>MMIM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Dice.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MMIS_SNK.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Command.cs" />
+    <Compile Include="Common\TextItem.cs" />
+    <Compile Include="Enum\GameType.cs" />
+    <Compile Include="Enum\ItemCategories.cs" />
+    <Compile Include="Subcomponents\NumItemsSlider.cs" />
+    <Compile Include="Subcomponents\CourseThemeSelector.cs" />
+    <Compile Include="Subcomponents\AutoScrollSelector.cs" />
+    <Compile Include="Common\Item.cs" />
+    <Compile Include="Subcomponents\ItemsSelector.cs" />
+    <Compile Include="Common\PropertyChangedBase.cs" />
+    <Compile Include="Subcomponents\SubcomponentBase.cs" />
+    <Compile Include="Subcomponents\GameTypeSelector.cs" />
+    <Compile Include="Subcomponents\TimerSettingsSelector.cs" />
+    <Compile Include="Subcomponents\GameModeSelector.cs" />
+    <Compile Include="Converters\ToggleStateToVisibilityConverter.cs" />
+    <Compile Include="Converters\ToggleStateToColorConverter.cs" />
+    <Compile Include="Enum\TimerSettings.cs" />
+    <Compile Include="Enum\GameModes.cs" />
+    <Compile Include="Enum\ItemToggleState.cs" />
+    <Compile Include="Enum\CourseThemes.cs" />
+    <Compile Include="Enum\AutoScrollSettings.cs" />
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="MMIS_SNK.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Dice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ArrowDown.png" />
+    <Resource Include="Icons\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\games\nsmb.png" />
+    <Resource Include="Icons\games\smb.png" />
+    <Resource Include="Icons\games\smb3.png" />
+    <Resource Include="Icons\games\smw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\themes\airship.png" />
+    <Resource Include="Icons\themes\castle.png" />
+    <Resource Include="Icons\themes\ghosthouse.png" />
+    <Resource Include="Icons\themes\overworld.png" />
+    <Resource Include="Icons\themes\underwater.png" />
+    <Resource Include="Icons\themes\underworld.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\items\01.png" />
+    <Resource Include="Icons\items\02.png" />
+    <Resource Include="Icons\items\03.png" />
+    <Resource Include="Icons\items\04.png" />
+    <Resource Include="Icons\items\05.png" />
+    <Resource Include="Icons\items\06.png" />
+    <Resource Include="Icons\items\07.png" />
+    <Resource Include="Icons\items\08.png" />
+    <Resource Include="Icons\items\09.png" />
+    <Resource Include="Icons\items\10.png" />
+    <Resource Include="Icons\items\11.png" />
+    <Resource Include="Icons\items\12.png" />
+    <Resource Include="Icons\items\13.png" />
+    <Resource Include="Icons\items\14.png" />
+    <Resource Include="Icons\items\15.png" />
+    <Resource Include="Icons\items\16.png" />
+    <Resource Include="Icons\items\17.png" />
+    <Resource Include="Icons\items\18.png" />
+    <Resource Include="Icons\items\19.png" />
+    <Resource Include="Icons\items\20.png" />
+    <Resource Include="Icons\items\21.png" />
+    <Resource Include="Icons\items\22.png" />
+    <Resource Include="Icons\items\23.png" />
+    <Resource Include="Icons\items\24.png" />
+    <Resource Include="Icons\items\25.png" />
+    <Resource Include="Icons\items\26.png" />
+    <Resource Include="Icons\items\27.png" />
+    <Resource Include="Icons\items\28.png" />
+    <Resource Include="Icons\items\29.png" />
+    <Resource Include="Icons\items\30.png" />
+    <Resource Include="Icons\items\31.png" />
+    <Resource Include="Icons\items\32.png" />
+    <Resource Include="Icons\items\33.png" />
+    <Resource Include="Icons\items\34.png" />
+    <Resource Include="Icons\items\35.png" />
+    <Resource Include="Icons\items\36.png" />
+    <Resource Include="Icons\items\37.png" />
+    <Resource Include="Icons\items\38.png" />
+    <Resource Include="Icons\items\39.png" />
+    <Resource Include="Icons\items\40.png" />
+    <Resource Include="Icons\items\41.png" />
+    <Resource Include="Icons\items\42.png" />
+    <Resource Include="Icons\items\43.png" />
+    <Resource Include="Icons\items\44.png" />
+    <Resource Include="Icons\items\45.png" />
+    <Resource Include="Icons\items\46.png" />
+    <Resource Include="Icons\items\47.png" />
+    <Resource Include="Icons\items\48.png" />
+    <Resource Include="Icons\items\49.png" />
+    <Resource Include="Icons\items\50.png" />
+    <Resource Include="Icons\items\51.png" />
+    <Resource Include="Icons\items\52.png" />
+    <Resource Include="Icons\items\53.png" />
+    <Resource Include="Icons\items\54.png" />
+    <Resource Include="Icons\items\55.png" />
+    <Resource Include="Icons\items\56.png" />
+    <Resource Include="Icons\items\57.png" />
+    <Resource Include="Icons\items\58.png" />
+    <Resource Include="Icons\items\59.png" />
+    <Resource Include="Icons\items\60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dice.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

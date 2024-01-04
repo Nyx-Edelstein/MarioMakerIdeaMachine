@@ -1,0 +1,15 @@
+﻿<Window x:Class="MarioStages.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:marioStages="clr-namespace:MarioStages"
+        Title="Current Level" Height="150" Width="420"
+        ResizeMode="NoResize"
+        Icon="Images/bowser.png"
+        KeyUp="MainWindow_OnKeyUp">
+    <Window.DataContext>
+        <marioStages:MainViewModel/>
+    </Window.DataContext>
+    <Grid Background="Black">
+        <Image Source="{Binding CurrentImage}" />
+    </Grid>
+</Window>
